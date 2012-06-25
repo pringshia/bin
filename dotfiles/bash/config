@@ -51,4 +51,5 @@ BWHITE='\e[47m'
 # FACE="\`if [ \$? = 0 ]; then echo $HAPPY; else echo $SAD; fi\`"
 # PS1="$FACE \[$BLUE\]\w\[$EYELLOW\]\$(vcprompt)\[$NO_COLOR\] → "
 
-PS1="\[$BLUE\]\$(vcprompt)\[\033[33;1m\]\w\[\033[m\]\$ "
+  PS1="\[$BLUE\]\$(vcprompt)\[$RED\]\w\[\033[m\]\$ "
+# PS1="\[$RED\]\W$ \[\e[m\]"

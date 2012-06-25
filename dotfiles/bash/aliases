@@ -7,7 +7,8 @@
 
 # SHELL
 # -----
-alias  l='ls -la'
+alias  l='ls -lap'
+alias ls='ls -p'
 alias  h='history' 
 alias md='mkdir -p'
 alias cx='chmod +x'

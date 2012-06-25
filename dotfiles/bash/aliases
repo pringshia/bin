@@ -18,7 +18,7 @@ alias dh='du -hd 0' # current folder size
 # --------
 alias sb='source ~/.bashrc'
 alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='mate -w ~/bin/dotfiles/bash/aliases && reload'
+alias ea='$EDITOR ~/bin/dotfiles/bash/aliases && reload'
 alias ee="mate ~/bin/dotfiles/bash/env"
 
 # GIT
@@ -231,14 +231,7 @@ function zipr() {
   zip -r $1.zip $1
 }
 
-# GOOD
-# ----
+# Pratik @ GOOD
+# -------------
 
-alias   c='cd ~/code; cd'
-alias cdr='cd ~/code/good.rb'
-alias cdi='cd ~/code/good.is'
-alias cdg='cd ~/code/gems'
-alias cdm='cd ~/code/maker'
-alias cdh='cd ~/code/hatch'
-alias cdu='cd ~/code/calumet'
-alias cdz='cd ~/code/citizen'
+alias cdn='cd ~/Projects/nommers'

@@ -1,4 +1,4 @@
-export EDITOR="mate -w"
+# export EDITOR="mate -w"
 
 # ~/bin is prepended to have ~/bin/ssh replace /usr/bin/ssh
 export PATH="~/bin:~/.rbenv/bin:/usr/local/bin:$PATH"

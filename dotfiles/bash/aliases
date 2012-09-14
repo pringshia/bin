@@ -34,8 +34,8 @@ function pair {
 # --------
 alias sb='source ~/.bashrc'
 alias reload='source ~/bin/dotfiles/bash/aliases'
-alias ea='vim ~/bin/dotfiles/bash/aliases && reload'
-alias ee="vim ~/bin/dotfiles/bash/env"
+alias ea='$EDITOR ~/bin/dotfiles/bash/aliases && reload'
+alias ee='$EDITOR ~/bin/dotfiles/bash/env'
 
 # GIT
 # ---

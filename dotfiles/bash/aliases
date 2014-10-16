@@ -252,4 +252,5 @@ function zipr() {
 
 alias cdn='cd ~/Projects/nommers'
 alias cdt='cd ~/Projects/time-machine'
+alias cdc='cd ~/Code'
 alias atrc="ssh -l good dev-labs.good.is 'cd ~/time-machine/current; RAILS_ENV=acceptance bundle exec rails console'"

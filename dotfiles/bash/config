@@ -1,6 +1,6 @@
 # RBENV
 # ------
-eval "$(rbenv init -)" # enable ruby from rbenv
+# eval "$(rbenv init -)" # enable ruby from rbenv
 
 # PROMPT
 # ------

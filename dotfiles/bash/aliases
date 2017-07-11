@@ -10,7 +10,7 @@
 # alias  l='clear && pwd && ls -FGl'
 # alias  u='cd .. && l'
 alias  l='pwd && ls -Glap'
-alias ls='ls -p'
+alias ls='ls -Gp'
 alias  h='history'
 alias md='mkdir -p'
 alias cx='chmod +x'
@@ -36,6 +36,8 @@ alias sb='source ~/.bashrc'
 alias reload='source ~/bin/dotfiles/bash/aliases'
 alias ea='$EDITOR ~/bin/dotfiles/bash/aliases && reload'
 alias ee='$EDITOR ~/bin/dotfiles/bash/env'
+alias ec='$EDITOR ~/bin/dotfiles/bash/config'
+alias ep='$EDITOR package.json'
 
 # GIT
 # ---
@@ -43,6 +45,8 @@ alias  gs='git status'
 alias  gd='git diff'
 alias gdh='git diff HEAD HEAD~'
 alias  ga='git add'
+alias gaa='git add .'
+alias  gb="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias  gl='git log'
 alias gl-='git log --follow --'
 alias glf='git log --pretty=full'
@@ -55,9 +59,8 @@ alias gcl='git clone'
 alias gli='git update-index --assume-unchanged' # locally ignore changes
 alias glu='git update-index --no-assume-unchanged' # stop ignoring changes
 alias  gc='git commit'
-alias  go='git checkout'
+alias  gco='git checkout'
 alias gcp='git cherry-pick'
-alias  gb='git branch'
 alias gbr='git branch -r'
 alias  gm='git merge'
 alias gmf='git merge --no-ff'
@@ -104,7 +107,7 @@ source ~/bin/git-completion.bash
 complete -o default -o nospace -F _git_diff gd
 complete -o default -o nospace -F _git_log gl
 complete -o default -o nospace -F _git_pull gu
-complete -o default -o nospace -F _git_checkout go
+complete -o default -o nospace -F _git_checkout gco
 complete -o default -o nospace -F _git_branch gb
 complete -o default -o nospace -F _git_merge gm
 complete -o default -o nospace -F _git_merge gmf
@@ -253,4 +256,6 @@ function zipr() {
 alias cdn='cd ~/Projects/nommers'
 alias cdt='cd ~/Projects/time-machine'
 alias cdc='cd ~/Code'
-alias atrc="ssh -l good dev-labs.good.is 'cd ~/time-machine/current; RAILS_ENV=acceptance bundle exec rails console'"
+alias cdwc='cd /Volumes/C/Users/pratik/Code'
+alias cdka='cd /Volumes/C/Users/pratik/Code/kickass-portal/KickAss.Web.vNext/'
+alias cdj='cd ~/Code/jet'

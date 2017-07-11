@@ -2,9 +2,14 @@
 export EDITOR="vim"
 
 # ~/bin is prepended to have ~/bin/ssh replace /usr/bin/ssh
-export PATH="~/bin:~/.rbenv/bin:/usr/local/bin:$PATH"
 
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
+export GOPATH="$HOME/Code/go"
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+nvm use 6.7.0 --silent
+
+export PATH="~/bin:~/.rbenv/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin"
 
 # Make Rails faster -- see https://gist.github.com/1935250
 export RUBY_GC_HEAP_INIT_SLOTS=1000000

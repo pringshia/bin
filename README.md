@@ -58,6 +58,6 @@ Other tips
 ----------
 
 * Install [OSX gcc installer](https://github.com/kennethreitz/osx-gcc-installer)
+* Install [z](https://github.com/rupa/z) into /usr/local/bin
 * Install [homebrew](http://mxcl.github.com/homebrew)
-* Install [rbenv](https://github.com/sstephenson/rbenv)
 * Learn how to [navigate with keyboard between OSX Terminal tabs](http://superuser.com/questions/26100/u/54004) 

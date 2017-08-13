@@ -7,8 +7,7 @@
 
 # SHELL
 # -----
-# alias  l='clear && pwd && ls -FGl'
-# alias  u='cd .. && l'
+alias  u='cd .. && l'
 alias  l='pwd && ls -Glap'
 alias ls='ls -Gp'
 alias  h='history'
@@ -16,7 +15,6 @@ alias md='mkdir -p'
 alias cx='chmod +x'
 alias rf='rm -rf'
 alias dh='du -hd 0' # current folder size
-alias rmb='rm *~' # remove all temporary ~ files from the current directory
 alias ...='../..'
 alias  v='vim'
 function pair {
@@ -51,7 +49,7 @@ alias  gl='git log'
 alias gl-='git log --follow --'
 alias glf='git log --pretty=full'
 alias glm='git log --pretty=full --author `git config user.name`'
-alias  gh='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short --all'
+alias  gh='git log --pretty=format:"%Cred%h%Creset %ad | %Cgreen%s%Creset%C(yellow)%d%Creset [%an]" --graph --date=short --all'
 alias ghm='git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short'
 alias  gu='git pull'
 alias  gv='git mv'
@@ -89,12 +87,6 @@ function gg() { # git commit that reads the message from the same line
   git add . 
   git commit -v -a -m "$*"
 }
-function gbump() { # bumps a gem, commits and create a tag
-  rake version:bump:patch
-  git tag -a v`cat VERSION` -m'`git log HEAD^^..HEAD^ --format=%s`'
-  git push
-  git push --tags
-}
 function gsh() { # shortens a Github URL
   curl -i http://git.io -F "url=$1"
 }
@@ -115,26 +107,6 @@ complete -o default -o nospace -F _git_push gp
 complete -o default -o nospace -F _git_stash gt
 # Nice to have: the output of gbr autocompletes gbt
 
-# RAKE
-# ----
-alias rdc='rake db:create'
-alias rdm='rake db:migrate'
-alias rds='rake db:setup'
-alias rdr='rake db:rollback'
-alias  rr='rake routes'
-alias  rj='rake jasmine'
-alias rake!='rf spec/fixtures/vcr_cassettes && rake'
-
-# RAILS
-# -----
-alias  r='rails'
-function rv { # Rails 2 and 3 server
-  if [ -f script/rails ]; then
-    script/rails server $*;
-  else
-    script/server $*;
-  fi
-}
 function get_bg {
   osascript -e "tell application \"Terminal\" to get current settings of first window"
 }
@@ -147,115 +119,8 @@ function unset_bg {
   osascript -e "tell application \"Terminal\" to set current settings of first window to $*"
 }
 
-function rc { # custom Rails console
-  term_settings=$(get_bg) # store previous color
-  case $1 in # change color based on environment
-    stage|staging) set_bg "{0, 6000, 3000}" ;;
-    prod|production) set_bg "{6000, 3000, 0}" ;;
-    *) set_bg "{3000, 3000, 6000}" ;;
-  esac
-  if which pry >/dev/null; then # use pry if installed
-    if test -z "$1"; then # if environment is present, prefix it
-      pry # pry automatically load Rails -- check .pryrc
-    else
-      RAILS_ENV=$1 pry
-    fi
-  else
-    rails console $*
-  fi
-  unset_bg $term_settings # restore previous color
-}
-alias  rg='rails generate'
-alias rgs='rails generate scaffold'
-alias rgm='rails generate migration'
-function rn {
-  cd ~/code;
-  rails new $* --skip-gemfile --skip-prototype --database=mysql;
-  cd $1;
-  cp ../Gemfile .;
-  bundle;
-}
-
-# BUNDLER
-# -------
-alias be='bundle exec'
-alias bi='bundle install'
-alias bu='bundle update'
-
-# Don't require bundle exec for main bundled commands
-# From http://marc-bowes.com/2011/09/21/dry-your-bundle-exec-tears.html
-bundle_commands="rake spec rspec cucumber cap watchr rails rackup guard etl"
-
-function run_bundler_cmd () {
-  if [ -r ./Gemfile ]; then
-    bundle exec $@
-  else
-    $@
-  fi
-}
- 
-for cmd in $bundle_commands
-do
-  alias $cmd="run_bundler_cmd $cmd"
-done
-
-# RBENV
-# -----
-function gi {
-  gem install $*; 
-  rbenv rehash;
-}
-
-function gua { # gem uninstall all
-  gem list | cut -d" " -f1 | xargs gem uninstall -aIx
-}
-
-# SVN
-# ---
-alias unsvn="find . -name '.svn' -exec rm -rf {} \;"
-
-# CUSTOM DROPBOX
-# --------------
-PPFILE='__drop__.zip'
-PPTO='gollum'
-
-function push {
-  rm -f $PPFILE
-  zip -r $PPFILE $*
-  scp $PPFILE $PPTO:
-  rm -f $PPFILE
-}
-
-function pull {
-  rm -f $PPFILE
-  scp $PPTO:$PPFILE .
-  ssh $PPTO rm -f $PPFILE
-  unzip $PPFILE
-  rm -f $PPFILE
-}
-
-# TEXTMATE
-# --------
-alias  m='mate .'
-alias hosts='mate /etc/hosts'
-
-# TOP
-# ---
-alias tc='top -o cpu'
-alias tv='top -o vsize'
-
 # ZIP
 # ---
 function zipr() {
   zip -r $1.zip $1
 }
-
-# Pratik @ GOOD
-# -------------
-
-alias cdn='cd ~/Projects/nommers'
-alias cdt='cd ~/Projects/time-machine'
-alias cdc='cd ~/Code'
-alias cdwc='cd /Volumes/C/Users/pratik/Code'
-alias cdka='cd /Volumes/C/Users/pratik/Code/kickass-portal/KickAss.Web.vNext/'
-alias cdj='cd ~/Code/jet'

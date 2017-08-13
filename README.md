@@ -24,14 +24,6 @@ How to install on a new computer
 
         ln -sf ~/bin/dotfiles/gitignore  ~/.gitignore
 
-7. Load **rubygems settings**:
-
-        ln -sf ~/bin/dotfiles/gemrc      ~/.gemrc
-
-8. Load **pry settings** for Rails:
-
-        ln -sf ~/bin/dotfiles/pryrc      ~/.pryrc
-
 9. Load **SSH settings**:
 
         mkdir -p ~/.ssh

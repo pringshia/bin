@@ -42,9 +42,9 @@ How to install on a new computer
         source ~/.bashrc
         vcprompt-install
         
-11. Load **hub** support (optional):
+11. Load **diff-so-fancy** support:
 
-        hub-install
+        brew install diff-so-fancy
 
 12. Don't track further changes to your private settings:
 

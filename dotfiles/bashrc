@@ -1,3 +1,5 @@
+. ~/.nvm/nvm.sh
+
 . ~/bin/dotfiles/bash/env        # environment variables used by other scripts
 . ~/bin/dotfiles/bash/env.secret # more private variables (ignored by git)
 . ~/bin/dotfiles/bash/config     # shell settings to construct the prompt
@@ -7,3 +9,4 @@ for file in ~/.{path}; do
   [ -r "$file" ] && source "$file"
 done
 unset file
+

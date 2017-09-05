@@ -32,6 +32,7 @@ How to install on a new computer
 10. Load **git prompt** support:
 
         source ~/.bashrc
+	brew install vcprompt
         vcprompt-install
         
 11. Load **diff-so-fancy** support:

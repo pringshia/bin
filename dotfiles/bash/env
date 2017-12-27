@@ -2,12 +2,13 @@ export EDITOR="vim"
 
 # ~/bin is prepended to have ~/bin/ssh replace /usr/bin/ssh
 
+export MINICONDA_PATH="/Users/pratik/miniconda3/bin:$PATH"
 export NODE_PATH="$NODE_PATH:/usr/local/lib/node_modules"
 export GOPATH="$HOME/Code/go"
 export NVM_DIR="$HOME/.nvm"
 . "$NVM_DIR/nvm.sh"
 . /usr/local/bin/z.sh
 
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin"
+export PATH="$MINICONDA_PATH:~/bin:/usr/local/bin:/usr/local/sbin:$PATH:$GOPATH/bin"
 
 export VCPROMPT_FORMAT="[%b%m%u]" vcprompt

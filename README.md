@@ -4,7 +4,7 @@ How to install on a new computer
 1. Fork this project into your own Github account
 2. Clone on your machine:
 
-        git clone https://github.com/<YOUR_GITHUB_USERNAME>/bin.git ~/bin
+        git clone https://github.com/pringshia/bin.git ~/bin
 
 3. Make sure the `.bashrc` file is loaded every time you open the Terminal:
 
@@ -32,12 +32,13 @@ How to install on a new computer
 10. Load **git prompt** support:
 
         source ~/.bashrc
-	brew install vcprompt
-        vcprompt-install
+
+	Follow the instructions here: https://github.com/djl/vcprompt
         
 11. Load **diff-so-fancy** support:
 
         brew install diff-so-fancy
+        git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
 
 12. Don't track further changes to your private settings:
 

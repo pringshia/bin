@@ -47,7 +47,36 @@ BWHITE='\e[47m'
 # FACE="\`if [ \$? = 0 ]; then echo $HAPPY; else echo $SAD; fi\`"
 # PS1="$FACE \[$BLUE\]\w\[$EYELLOW\]\$(vcprompt)\[$NO_COLOR\] → "
 
-PS1="\n\[$EBLACK\]--\T----------------------------------------------------------------------\n\[$RED\]\$(vcprompt)\[$BLUE\]\W\[\033[m\]$ "
+
+
+function virtualenv_info(){
+    # Get Virtual Env
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        # Strip out the path and just leave the env name
+        venv="${VIRTUAL_ENV##*/}"
+    else
+        # In case you don't have one activated
+        venv=''
+    fi
+
+    tendash="----------"
+    headerdash="$tendash$tendash$tendash$tendash$tendash"
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+      text="venv:$venv"
+    else
+      text=""
+    fi
+    divider="${headerdash:0:$((${#headerdash} - ${#text}))}${text}"
+
+    echo "$divider"
+}
+
+# disable the default virtualenv prompt change
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+
+
+PS1="\n\[$EBLACK\]--\T---\$(virtualenv_info)--\n\[$RED\]\$(vcprompt)\[$BLUE\]\W\[\033[m\]$ "
+# PS1="\n\[$EBLACK\]--\T-----\n\[$RED\]\[$BLUE\]\W\[\033[m\]$ "
 # PS1="\[$RED\]\W$ \[\e[m\]"
 # PS1="\[$RED\]\W$ \[\e[m\]"
 

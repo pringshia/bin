@@ -96,16 +96,16 @@ alias ungit="find . -name '.git' -exec rm -rf {} \;"
 
 # GIT AUTOCOMPLETE
 # ----------------
-source ~/bin/git-completion.bash
-complete -o default -o nospace -F _git_diff gd
-complete -o default -o nospace -F _git_log gl
-complete -o default -o nospace -F _git_pull gu
-complete -o default -o nospace -F _git_checkout gco
-complete -o default -o nospace -F _git_branch gb
-complete -o default -o nospace -F _git_merge gm
-complete -o default -o nospace -F _git_merge gmf
-complete -o default -o nospace -F _git_push gp
-complete -o default -o nospace -F _git_stash gt
+#source ~/bin/git-completion.bash
+#complete -o default -o nospace -F _git_diff gd
+#complete -o default -o nospace -F _git_log gl
+#complete -o default -o nospace -F _git_pull gu
+#complete -o default -o nospace -F _git_checkout gco
+#complete -o default -o nospace -F _git_branch gb
+#complete -o default -o nospace -F _git_merge gm
+#complete -o default -o nospace -F _git_merge gmf
+#complete -o default -o nospace -F _git_push gp
+#complete -o default -o nospace -F _git_stash gt
 # Nice to have: the output of gbr autocompletes gbt
 
 function get_bg {
